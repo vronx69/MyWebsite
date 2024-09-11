@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aizsargāta lapa</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+            background-size: 300% 300%;
+            animation: gradientBG 6s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #login-container, #protected-content {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        input[type="password"] {
+            padding: 12px;
+            width: 80%;
+            border: 2px solid #ff6f61;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff3b3b;
+        }
+
+        h2 {
+            color: #ff6f61;
+            font-size: 24px;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+
+        #error-message {
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #protected-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-container">
+    <h2>Ievadiet paroli, lai piekļūtu!</h2>
+    <input type="password" id="passwordInput" placeholder="Ievadiet paroli">
+    <br>
+    <button onclick="checkPassword()">Apstiprināt</button>
+    <p id="error-message"></p>
+</div>
+
+<div id="protected-content">
+    <!-- Rediģējiet šo sadaļu, lai parādītu savu tekstu -->
+    <h2>Laipni lūdzam slepenajā lapā!</h2>
+    <p>Šī lapa ir aizsargāta ar paroli. Jūs esat veiksmīgi ievadījis pareizo paroli!</p>
+    <p>Sveikii! Mani sauc Daniels un es eju 5. klasē. Manas mīļākās krāsas ir zila un vieoleta. Mans epasts i</p>
+    <!-- Rediģējamās sadaļas beigas -->
+</div>
+
+<script>
+    function checkPassword() {
+        const password = document.getElementById('passwordInput').value;
+        const correctPassword = "ozolins123";
+        const errorMessage = document.getElementById('error-message');
+        
+        if (password === correctPassword) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('protected-content').style.display = 'block';
+        } else {
+            errorMessage.textContent = "Nepareiza parole. Lūdzu, mēģiniet vēlreiz!";
+        }
+    }
+</script>
+
+</body>
+</html>
